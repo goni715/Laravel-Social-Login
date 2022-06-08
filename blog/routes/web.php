@@ -13,18 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Home');
-});
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/','App\Http\Controllers\HomeController@HomePage');
 
 
 Route::get('/CallGitHub', 'App\Http\Controllers\LoginRegistrationController@CallGitHub');
 
 
 Route::get('/GitHubCallBack','App\Http\Controllers\LoginRegistrationController@GitHubCallBack');
+
+
+Route::get('/dashboard','App\Http\Controllers\DashBoardController@dashBoardPage')->middleware('check');
+
+Route::get('/Logout', 'App\Http\Controllers\LoginRegistrationController@Logout');
+
